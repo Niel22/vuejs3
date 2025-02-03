@@ -38,6 +38,24 @@
 
     <h2 v-show="display">Use V Show</h2>
 
+    <h2 v-for="(name, index) in names" :key="name">{{ index+1 }} {{ name }}</h2>
+
+    <h2 v-for="(name, index) in fullnames" :key="index">{{ index + 1 + '-' }} {{ name.first }} {{ name.last }}</h2>
+
+    <div v-for="actor in actors" :key="actor.name">
+      <h2>{{ actor.name }}</h2>
+      <h3 v-for="movie in actor.movies" :key="movie">{{ movie }}</h3>
+    </div>
+
+    <h2  :key="value"><span style="text-transform: capitalize;">{{ key }}</span>: {{ value }}</h2>
+
+    <template v-for="(value, key) in info" :key="value">
+      <h2>{{ key }}</h2>
+      <hr>
+      <p>{{ value }}</p>
+      <br><br>
+    </template>
+
 
 </template>
 
@@ -73,7 +91,34 @@ export default {
         border: '1px solid red'
       },
       num: "Hello",
-      display: true
+      display: true,
+      names: [
+        'bruce', 'john', 'diana'
+      ],
+      fullnames: [
+        {first: 'James', last: "Daniel"},
+        {first: 'NI', last: "EL"},
+        {first: 'Moses', last: "David"}
+      ],
+      actors: [
+        {
+          name: "Title Sample",
+          movies: ['movie 1', 'movie 2']
+        },
+        {
+          name: "Title Sample",
+          movies: ['movie 1', 'movie 2']
+        },
+        {
+          name: "Title Sample",
+          movies: ['movie 1', 'movie 2']
+        }
+      ],
+      info: {
+        name: "James",
+        age: 20,
+        level: "Intermediate"
+      }
     }
   }
 }
