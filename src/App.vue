@@ -25,7 +25,20 @@
 
     <h1 :style="[baseStyle, successStyle]">Another of another style</h1>
 
-    
+    <h2 v-if="num === 0">The number is zero</h2>
+    <h2 v-else-if="num < 0">The number is negative</h2>
+    <h2 v-else-if="num > 0">The number is Positive</h2>
+    <h2 v-else>Not a number</h2>
+
+    <template v-if="display">
+      <h2>Hello</h2>
+      <h2>Hi</h2>
+      <h2>Wassup</h2>
+    </template>
+
+    <h2 v-show="display">Use V Show</h2>
+
+
 </template>
 
 <script>
@@ -58,7 +71,9 @@ export default {
         color: 'green',
         backgroundColor: 'black',
         border: '1px solid red'
-      }
+      },
+      num: "Hello",
+      display: true
     }
   }
 }
